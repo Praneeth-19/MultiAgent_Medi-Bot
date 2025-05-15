@@ -7,9 +7,13 @@ A modular, multi-agent chatbot built to handle medical queries with factual grou
 ## 📁 Project Structure
 
 ├── model.py # Loads LLaMA2 with RAG for medical QA
+
 ├── modelagent.py # Defines specialized agents (e.g., symptom checker)
+
 ├── multiagent.py # Multi-agent orchestration and conversation flow
+
 ├── requirements.txt # Dependencies
+
 └── README.md
 
 
