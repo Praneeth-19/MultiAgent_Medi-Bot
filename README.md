@@ -22,9 +22,13 @@ A modular, multi-agent chatbot built to handle medical queries with factual grou
 ## 🧠 Core Technologies
 
 - **LLaMA2** – Large language model for natural language generation
+  
 - **RAG** – Combines retrieval with generation for grounded responses
+
 - **FAISS / VectorDB** – Embeds and indexes medical documents
+
 - **LangChain Agents** – Modular tools simulating domain experts
+
 - **Multi-Agent Collaboration** – Escalation and cross-referencing between agents
 
 ---
@@ -56,6 +60,7 @@ python multiagent.py
 
 **model.py**
 Loads and initializes:
+   
     -LLaMA2 with HuggingFace Transformers
     -FAISS vector store using LangChain
     -RAG pipeline via RetrievalQA
@@ -63,32 +68,40 @@ Loads and initializes:
 **modelagent.py**
 
 Defines multiple domain-specific agents:
-    -Symptom Checker
-    -Medication Expert
-    -Each tool routes the query through the RAG pipeline with prompt engineering
+    
+-Symptom Checker
+-Medication Expert
+-Each tool routes the query through the RAG pipeline with prompt engineering
 
 multiagent.py
 Implements a controller agent that:
-    -Routes medical questions to appropriate agents
-    -Escalates to multiple agents if needed
-    -Streams final responses back to the user
+   
+-Routes medical questions to appropriate agents
+-Escalates to multiple agents if needed
+-Streams final responses back to the user
 
 🧪 Example Usage
 User: "What could be the cause of chronic headaches?"
+
 Bot: "Chronic headaches could be caused by migraines, tension-type headaches, medication overuse, or other neurological conditions. Please consult a doctor for diagnosis."
 
+
 User: "What are the side effects of ibuprofen?"
+
 Bot: "Common side effects include nausea, stomach pain, and dizziness. Serious side effects may include gastrointestinal bleeding or kidney issues."
 
 📌 Notes
 ⚠️ This is a research prototype and not intended for clinical use.
+
 ⚠️ Embedding quality and document coverage directly impact output accuracy.
+
 ⚠️ Prompt engineering can enhance factual grounding and specificity.
 
 📬 Contact
 Feel free to reach out or collaborate!
 
 LinkedIn: Burada Praneeth
+
 GitHub: @Praneeth-19
 
 🛡️ Disclaimer
