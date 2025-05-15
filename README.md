@@ -37,8 +37,8 @@ A modular, multi-agent chatbot built to handle medical queries with factual grou
 
 1. **Clone the repo**
 
-git clone https://github.com/yourusername/MultiAgent_Medi-Bot.git
-cd MultiAgent_Medi-Bot
+  git clone https://github.com/yourusername/MultiAgent_Medi-Bot.git
+  cd MultiAgent_Medi-Bot
 
 2. **Clone the repo**
 
@@ -48,7 +48,7 @@ pip install -r requirements.txt
 
 3. **Prepare vectorstore (FAISS)**
 
-Make sure you have a prebuilt FAISS index (medical_knowledge_index) based on your corpus of medical articles or open-source datasets like PubMed summaries or WHO guidelines.
+  Could you ensure you have a prebuilt FAISS index (medical_knowledge_index) based on your corpus of medical articles or open-source datasets like PubMed summaries or WHO guidelines?
 
 4. **Run the chatbot**
 
@@ -59,59 +59,64 @@ python multiagent.py
 📄 File Descriptions
 
 **model.py**
+
 Loads and initializes:
    
-    -LLaMA2 with HuggingFace Transformers
-    -FAISS vector store using LangChain
-    -RAG pipeline via RetrievalQA
+  -LLaMA2 with HuggingFace Transformers
+  -FAISS vector store using LangChain
+  -RAG pipeline via RetrievalQA
 
 **modelagent.py**
 
 Defines multiple domain-specific agents:
-    
--Symptom Checker
--Medication Expert
--Each tool routes the query through the RAG pipeline with prompt engineering
+
+  -Symptom Checker
+  -Medication Expert
+  -Each tool routes the query through the RAG pipeline with prompt engineering
 
 multiagent.py
+
 Implements a controller agent that:
    
--Routes medical questions to appropriate agents
--Escalates to multiple agents if needed
--Streams final responses back to the user
-
+  -Routes medical questions to appropriate agents
+  -Escalates to multiple agents if needed
+  -Streams final responses back to the user
+  
 🧪 Example Usage
-User: "What could be the cause of chronic headaches?"
 
-Bot: "Chronic headaches could be caused by migraines, tension-type headaches, medication overuse, or other neurological conditions. Please consult a doctor for diagnosis."
+  User: "What could be the cause of chronic headaches?"
+
+  Bot: "Chronic headaches could be caused by migraines, tension-type headaches, medication overuse, or other neurological conditions. Please consult a doctor for diagnosis."
 
 
-User: "What are the side effects of ibuprofen?"
+  User: "What are the side effects of ibuprofen?"
 
-Bot: "Common side effects include nausea, stomach pain, and dizziness. Serious side effects may include gastrointestinal bleeding or kidney issues."
+  Bot: "Common side effects include nausea, stomach pain, and dizziness. Serious side effects may include gastrointestinal bleeding or kidney issues."
 
 📌 Notes
-⚠️ This is a research prototype and not intended for clinical use.
 
-⚠️ Embedding quality and document coverage directly impact output accuracy.
+  ⚠️ This is a research prototype and not intended for clinical use.
 
-⚠️ Prompt engineering can enhance factual grounding and specificity.
+  ⚠️ Embedding quality and document coverage directly impact output accuracy.
+
+  ⚠️ Prompt engineering can enhance factual grounding and specificity.
 
 📬 Contact
-Feel free to reach out or collaborate!
+  Feel free to reach out or collaborate!
 
-LinkedIn: Burada Praneeth
+  LinkedIn: Burada Praneeth
 
-GitHub: @Praneeth-19
+  GitHub: @Praneeth-19
 
 🛡️ Disclaimer
-This chatbot does not provide medical advice and should not be used for diagnosis or treatment. Always consult a licensed medical professional.
+
+  This chatbot does not provide medical advice and should not be used for diagnosis or treatment. Always consult a licensed medical professional.
 
 ⭐️ Future Enhancements
-✅ Better document retrieval (e.g., semantic search via Cohere or OpenSearch)
+  ✅ Better document retrieval (e.g., semantic search via Cohere or OpenSearch)
 
-✅ Plugin for patient symptom upload (PDFs, JSON, etc.)
+  ✅ Plugin for patient symptom upload (PDFs, JSON, etc.)
 
-✅ Integration with FHIR/EHR systems
+  ✅ Integration with FHIR/EHR systems
 
-✅ UI/Chat frontend (Streamlit, React, or chatbot SDK)
+  ✅ UI/Chat frontend (Streamlit, React, or chatbot SDK)
