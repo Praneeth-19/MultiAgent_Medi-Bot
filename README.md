@@ -1,104 +1,98 @@
+# 🩺 Medical Chatbot using RAG + LLaMA2
 
-
-# Llama2 - Agent - MultiAgent Medical Bot
-
-The Llama2 Medical Bot is a powerful tool designed to provide medical information by answering user queries using state-of-the-art language models and vector stores. This README will guide you through the setup and usage of the Llama2 Medical Bot.
-
-## Table of Contents
-
-- [Introduction](#langchain-medical-bot)
-- [Table of Contents](#table-of-contents)
-- [Prerequisites](#prerequisites)
-- [Installation](#installation)
-- [Getting Started](#getting-started)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
-
-## Prerequisites
-
-Before you can start using the Llama2 Medical Bot, make sure you have the following prerequisites installed on your system:
-
-- Python 3.6 or higher
-- Required Python packages (you can install them using pip):
-    - langchain
-    - chainlit
-    - sentence-transformers
-    - faiss
-    - PyPDF2 (for PDF document loading)
-
-## Installation
-
-1. Clone this repository to your local machine.
-
-    ```bash
-    git clone https://github.com/your-username/langchain-medical-bot.git
-    cd langchain-medical-bot
-    ```
-
-2. Create a Python virtual environment (optional but recommended):
-
-    ```bash
-    python -m venv venv
-    source venv/bin/activate  # On Windows, use: venv\Scripts\activate
-    ```
-
-3. Install the required Python packages:
-
-    ```bash
-    pip install -r requirements.txt
-    ```
-
-4. Download the required language models and data. Please refer to the Langchain documentation for specific instructions on how to download and set up the language model and vector store.
-
-5. Set up the necessary paths and configurations in your project, including the `DB_FAISS_PATH` variable and other configurations as per your needs.
-
-## Getting Started
-
-To get started with the Llama2 Medical Bot, you need to:
-
-1. Set up your environment and install the required packages as described in the Installation section.
-
-2. Configure your project by updating the `DB_FAISS_PATH` variable and any other custom configurations in the code.
-
-3. Prepare the language model and data as per the Langchain documentation.
-
-4. Start the bot by running the provided Python script or integrating it into your application.
-
-## Usage
-
-The Llama2 Medical Bot can be used for answering medical-related queries. To use the bot, you can follow these steps:
-
-1. Start the bot by running your application or using the provided Python script.
-
-2. Send a medical-related query to the bot.
-
-3. The bot will provide a response based on the information available in its database.
-
-4. If sources are found, they will be provided alongside the answer.
-
-5. The bot can be customized to return specific information based on the query and context provided.
-
-## Contributing
-
-Contributions to the Llama2 Medical Bot are welcome! If you'd like to contribute to the project, please follow these steps:
-
-1. Fork the repository to your own GitHub account.
-
-2. Create a new branch for your feature or bug fix.
-
-3. Make your changes and ensure that the code passes all tests.
-
-4. Create a pull request to the main repository, explaining your changes and improvements.
-
-5. Your pull request will be reviewed, and if approved, it will be merged into the main codebase.
-
-## License
-
-This project is licensed under the MIT License.
+A modular, multi-agent chatbot built to handle medical queries with factual grounding and conversational fluency. This project leverages **LLaMA2**, **RAG (Retrieval-Augmented Generation)**, and a **multi-agent architecture** to simulate domain-specific medical experts collaborating to provide reliable answers.
 
 ---
 
-For more information on how to use, configure, and extend the Llama2 Medical Bot, please refer to the Langchain documentation or contact the project maintainers.
+## 📁 Project Structure
 
-Happy coding with Llama2 Medical Bot! 🚀
+├── model.py # Loads LLaMA2 with RAG for medical QA
+├── modelagent.py # Defines specialized agents (e.g., symptom checker)
+├── multiagent.py # Multi-agent orchestration and conversation flow
+├── requirements.txt # Dependencies
+└── README.md
+
+
+---
+
+## 🧠 Core Technologies
+
+- **LLaMA2** – Large language model for natural language generation
+- **RAG** – Combines retrieval with generation for grounded responses
+- **FAISS / VectorDB** – Embeds and indexes medical documents
+- **LangChain Agents** – Modular tools simulating domain experts
+- **Multi-Agent Collaboration** – Escalation and cross-referencing between agents
+
+---
+
+## 🔧 Setup
+
+1. **Clone the repo**
+
+git clone https://github.com/yourusername/medical-chatbot-rag-llama2.git
+cd medical-chatbot-rag-llama2
+
+2. **Clone the repo**
+
+```bash
+pip install -r requirements.txt
+```
+
+3. **Prepare vectorstore (FAISS)**
+
+Make sure you have a prebuilt FAISS index (medical_knowledge_index) based on your corpus of medical articles or open-source datasets like PubMed summaries or WHO guidelines.
+
+4. **Run the chatbot**
+
+```bash
+python multiagent.py
+```
+
+📄 File Descriptions
+
+**model.py**
+Loads and initializes:
+    -LLaMA2 with HuggingFace Transformers
+    -FAISS vector store using LangChain
+    -RAG pipeline via RetrievalQA
+
+**modelagent.py**
+
+Defines multiple domain-specific agents:
+    -Symptom Checker
+    -Medication Expert
+    -Each tool routes the query through the RAG pipeline with prompt engineering
+
+multiagent.py
+Implements a controller agent that:
+    -Routes medical questions to appropriate agents
+    -Escalates to multiple agents if needed
+    -Streams final responses back to the user
+
+🧪 Example Usage
+User: "What could be the cause of chronic headaches?"
+Bot: "Chronic headaches could be caused by migraines, tension-type headaches, medication overuse, or other neurological conditions. Please consult a doctor for diagnosis."
+
+User: "What are the side effects of ibuprofen?"
+Bot: "Common side effects include nausea, stomach pain, and dizziness. Serious side effects may include gastrointestinal bleeding or kidney issues."
+
+📌 Notes
+⚠️ This is a research prototype and not intended for clinical use.
+Embedding quality and document coverage directly impact output accuracy.
+Prompt engineering can enhance factual grounding and specificity.
+
+📬 Contact
+Feel free to reach out or collaborate!
+
+LinkedIn: Burada Praneeth
+GitHub: @Praneeth-19
+
+🛡️ Disclaimer
+This chatbot does not provide medical advice and should not be used for diagnosis or treatment. Always consult a licensed medical professional.
+
+⭐️ Future Enhancements
+✅ Better document retrieval (e.g., semantic search via Cohere or OpenSearch)
+✅ Plugin for patient symptom upload (PDFs, JSON, etc.)
+✅ Integration with FHIR/EHR systems
+✅ UI/Chat frontend (Streamlit, React, or chatbot SDK)
+
