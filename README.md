@@ -37,8 +37,10 @@ A modular, multi-agent chatbot built to handle medical queries with factual grou
 
 1. **Clone the repo**
 
+  ```bash
   git clone https://github.com/yourusername/MultiAgent_Medi-Bot.git
   cd MultiAgent_Medi-Bot
+  ```
 
 2. **Clone the repo**
 
