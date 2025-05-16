@@ -54,8 +54,17 @@ pip install -r requirements.txt
 
 4. **Run the chatbot**
 
+--- Model ---
 ```bash
-python multiagent.py
+chainlit run model.py
+```
+ --- Agent ---
+```bash
+chainlit run modelagent.py
+```
+--- MultiAgent ---
+```bash
+chainlit run multiagent.py
 ```
 
 📄 File Descriptions
@@ -76,7 +85,7 @@ Defines multiple domain-specific agents:
   -Medication Expert
   -Each tool routes the query through the RAG pipeline with prompt engineering
 
-multiagent.py
+**multiagent.py**
 
 Implements a controller agent that:
    
